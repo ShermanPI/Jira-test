@@ -1,0 +1,1 @@
+technical test for Jira app
