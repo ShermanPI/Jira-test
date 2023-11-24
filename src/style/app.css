@@ -13,3 +13,12 @@
     /* font-weight: bold; */
     font-size: 3rem;
 }
+
+.board-control-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-modal-btn{
+    height: auto;
+}

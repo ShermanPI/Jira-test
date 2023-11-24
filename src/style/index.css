@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 html{
@@ -16,4 +17,15 @@ h1, h2, h3, h5, h5, h6{
 
 p, b{
     font-size: 1.6rem;
+}
+
+img, svg{
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.button-reset{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }

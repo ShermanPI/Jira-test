@@ -3,6 +3,7 @@ import KanbanColumn from './components/KanbanColumn/KanbanColumn'
 import TaskCard from './components/TaskCard/TaskCard'
 import './style/index.css'
 import './style/app.css'
+import CreateTaskModal from './components/CreateTaskModal/CreateTaskModal'
 
 function App () {
   return (
@@ -10,7 +11,10 @@ function App () {
       <main className='main-container'>
         <div className='table-title'>
           <h3>Projects / Mi Own Kanban's Project</h3>
-          <h1 className='board-title'>KAN board</h1>
+          <div className='board-control-container'>
+            <h1 className='board-title'>KAN board</h1>
+            <CreateTaskModal buttonClassName='create-modal-btn' />
+          </div>
         </div>
         <KanbanContainer>
           <KanbanColumn title='TO DO'>
