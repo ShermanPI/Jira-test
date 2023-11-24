@@ -1,12 +1,9 @@
-import KanbanColumn from '../KanbanColumn/KanbanColumn'
 import './style/kenbanStyle.css'
 
-export default function KanbanContainer () {
+export default function KanbanContainer ({ children }) {
   return (
     <section className='kenban-container'>
-      <KanbanColumn />
-      <KanbanColumn />
-      <KanbanColumn />
+      {children}
     </section>
   )
 }

@@ -1,3 +1,10 @@
 .main-container{
     padding: 4rem;
+    padding-bottom: 10rem;
+    height: 100vh;
+}
+
+.table-title{
+    padding-inline: 3.6rem;
+    line-height: 2;
 }

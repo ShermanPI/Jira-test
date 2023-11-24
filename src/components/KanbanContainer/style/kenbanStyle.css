@@ -1,6 +1,6 @@
 .kenban-container{
-    background-color: purple;
-    height: 100vh;
+    background-color: #00000047;
+    height: 100%;
     width: 100%;
     overflow-x: auto;
     padding: 4rem 3.6rem;

@@ -1,13 +1,12 @@
-import TaskCard from '../TaskCard/TaskCard'
 import './style/KanbanColumn.css'
 
-export default function KanbanColumn ({ children }) {
+export default function KanbanColumn ({ children, title }) {
   return (
     <div className='kanban-column'>
-      <p>
-        Title
-      </p>
-      <TaskCard />
+      <h3 className='column-title'>
+        {title}
+      </h3>
+      {children}
     </div>
   )
 }

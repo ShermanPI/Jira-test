@@ -1,11 +1,18 @@
-.kanban-column{
+.kanban-column {
     background-color: #f7f8f9;
     border-radius: 0.4rem;
     padding: 1rem;
+    gap: 0.6rem;
     width: 27rem;
     min-width: 27rem;
     max-width: 27rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+}
+
+.column-title {
+    line-height: 3;
+    font-size: 1.3rem;
+    color: #000000ca;
 }
