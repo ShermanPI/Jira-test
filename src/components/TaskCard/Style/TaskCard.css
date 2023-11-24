@@ -1,0 +1,7 @@
+.task-card-cotainer {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 0.3rem;
+    padding: 1.4rem 1.2rem;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.49);
+}
