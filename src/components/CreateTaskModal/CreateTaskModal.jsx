@@ -1,10 +1,16 @@
 import useToggle from '../../hooks/useToggle'
 import './style/createTaskModal.css'
 import CloseIcon from '../../assets/SvgIcons/Icons'
+// import cardsStorageManagment from '../../mock/repositoryPattern'
 
-export default function CreateTaskModal ({ buttonClassName }) {
+export default function CreateTaskModal ({ buttonClassName, submitFunction }) {
   const [isHidden, toggleIsHidden] = useToggle({ initialValue: false })
-  console.log(isHidden && 'hidden-modal')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(e.target)
+  }
+
   return (
     <>
       <button className={buttonClassName} onClick={toggleIsHidden}>
@@ -12,7 +18,7 @@ export default function CreateTaskModal ({ buttonClassName }) {
       </button>
       <div className={`modal-shadow ${!isHidden && 'hidden-modal'}`} onClick={toggleIsHidden}>
         <div className='form-modal-container'>
-          <form className='task-form' onSubmit={(e) => e.preventDefault()} onClick={(e) => e.stopPropagation()}>
+          <form className='task-form' onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
             <header className='card-header'>
               <h2>Create Task Card</h2>
               <button className='button-reset close-btn' onClick={toggleIsHidden}>
@@ -39,7 +45,7 @@ export default function CreateTaskModal ({ buttonClassName }) {
               <label htmlFor='due-time'> Assignee </label>
               <p>sherman</p>
             </div>
-            <input type='button' value='create' />
+            <button type='submit'>Create</button>
 
           </form>
         </div>

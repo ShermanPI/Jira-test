@@ -20,7 +20,7 @@ El código fuente debe subirlo a un repositorio de Git de su preferencia y envia
 ## Etapa 1
 
 ✅ - Implemente un tablero Kanban con tres columnas, "To Do", "In Progress" y "Done"
-- Los formularios para crear tarjetas deben colocarse en un modal. 
+✅ - Los formularios para crear tarjetas deben colocarse en un modal. 
 - los usuarios pueden agregar tareas (Cards).
     --> Cada tarjeta debe tener los siguientes campos: 
         - Título 
