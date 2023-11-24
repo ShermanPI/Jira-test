@@ -1,6 +1,6 @@
 Etapa 1
 
-- Implemente un tablero Kanban con tres columnas, "To Do", "In Progress" y "Done"
+✅- Implemente un tablero Kanban con tres columnas, "To Do", "In Progress" y "Done"
 - los usuarios pueden agregar, editar y eliminar tareas (Cards). 
 - Cuando un usuario agrega una nueva tarjeta, ésta debe colocarse en la parte inferior de la columna "Tareas pendientes".
 - Los formularios para crear y eliminar tarjetas deben colocarse en un modal. 

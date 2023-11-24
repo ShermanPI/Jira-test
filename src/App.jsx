@@ -10,7 +10,7 @@ function App () {
       <main className='main-container'>
         <div className='table-title'>
           <h3>Projects / Mi Own Kanban's Project</h3>
-          <h1>Kan Table</h1>
+          <h1 className='board-title'>KAN board</h1>
         </div>
         <KanbanContainer>
           <KanbanColumn title='TO DO'>

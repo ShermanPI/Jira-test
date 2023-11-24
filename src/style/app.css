@@ -8,3 +8,8 @@
     padding-inline: 3.6rem;
     line-height: 2;
 }
+
+.board-title{
+    /* font-weight: bold; */
+    font-size: 3rem;
+}
