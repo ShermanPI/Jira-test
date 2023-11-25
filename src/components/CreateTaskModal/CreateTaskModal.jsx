@@ -8,7 +8,11 @@ export default function CreateTaskModal ({ buttonClassName, submitFunction }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(e.target)
+    const form = new FormData(e.target)
+    const title = form.get('title')
+    const description = form.get('description')
+    const dueDate = form.get('due-time')
+    submitFunction({ title, description, asignee: 'sherman', dueDate })
   }
 
   return (
@@ -25,17 +29,18 @@ export default function CreateTaskModal ({ buttonClassName, submitFunction }) {
                 <CloseIcon />
               </button>
             </header>
-            <input type='text' className='title-input input-text-reset' name='title' id='title' placeholder='Title' />
+            <input type='text' className='title-input' name='title' id='title' placeholder='Title' />
 
             <div className='input-group'>
               <label htmlFor='task-description'> Description </label>
-              <textarea id='task-description' name='task-description' placeholder='This is a description' />
+              <textarea id='task-description' name='description' placeholder='This is a description' />
             </div>
             <div className='input-group'>
               <label htmlFor='tag'> Tags </label>
-              <div>hola</div>
-              <div>hola2</div>
-              <div>hola3</div>
+              <input type='text' className='input-text-reset' name='title' id='title' placeholder='Tag Name' />
+              <div>hey</div>
+              <div>ehy</div>
+              <div>hey</div>
             </div>
             <div className='input-group'>
               <label htmlFor='due-time'> Due Date </label>

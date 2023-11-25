@@ -4,6 +4,7 @@ import TaskCard from './components/TaskCard/TaskCard'
 import './style/index.css'
 import './style/app.css'
 import CreateTaskModal from './components/CreateTaskModal/CreateTaskModal'
+import cardsStorageManagment from './mock/repositoryPattern'
 
 function App () {
   return (
@@ -13,7 +14,7 @@ function App () {
           <h3>Projects / Mi Own Kanban's Project</h3>
           <div className='board-control-container'>
             <h1 className='board-title'>KAN board</h1>
-            <CreateTaskModal buttonClassName='create-modal-btn' />
+            <CreateTaskModal buttonClassName='create-modal-btn' submitFunction={cardsStorageManagment.createTaskCard} />
           </div>
         </div>
         <KanbanContainer>
