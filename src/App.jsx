@@ -1,10 +1,8 @@
 import KanbanContainer from './components/KanbanContainer/KanbanContainer'
-import KanbanColumn from './components/KanbanColumn/KanbanColumn'
-import TaskCard from './components/TaskCard/TaskCard'
 import './style/index.css'
 import './style/app.css'
 import CreateTaskModal from './components/CreateTaskModal/CreateTaskModal'
-import cardsStorageManagment from './mock/repositoryPattern'
+import cardsStorageManagment from './services/repositoryPattern'
 
 function App () {
   return (
@@ -17,26 +15,7 @@ function App () {
             <CreateTaskModal buttonClassName='create-modal-btn' submitFunction={cardsStorageManagment.createTaskCard} />
           </div>
         </div>
-        <KanbanContainer>
-          <KanbanColumn title='TO DO'>
-            <TaskCard title='New Card' />
-            <TaskCard title='New Card 1' />
-            <TaskCard title='New Card 2' />
-          </KanbanColumn>
-
-          <KanbanColumn title='IN PROGRESS'>
-            <TaskCard title='New Card' />
-            <TaskCard title='New Card 1' />
-            <TaskCard title='New Card 2' />
-          </KanbanColumn>
-
-          <KanbanColumn title='DONE'>
-            <TaskCard title='New Card' />
-            <TaskCard title='New Card 1' />
-            <TaskCard title='New Card 2' />
-          </KanbanColumn>
-
-        </KanbanContainer>
+        <KanbanContainer columns={[{ name: 'TO DO', id: 'SHERMAN' }, { name: 'IN PROGRESS', id: 'asasf' }, { name: 'DONE', id: 'oidio' }]} />
       </main>
     </>
   )

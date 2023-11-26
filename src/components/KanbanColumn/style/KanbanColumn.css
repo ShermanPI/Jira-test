@@ -6,9 +6,9 @@
     width: 27rem;
     min-width: 27rem;
     max-width: 27rem;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .column-title {

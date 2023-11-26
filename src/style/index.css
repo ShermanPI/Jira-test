@@ -7,25 +7,46 @@
     user-select: none;
 }
 
-html{
+html {
     font-size: 62.5%;
 }
 
-h1, h2, h3, h5, h5, h6{
+h1,
+h2,
+h3,
+h5,
+h5,
+h6 {
     font-weight: normal;
 }
 
-p, b{
+p,
+b {
     font-size: 1.6rem;
 }
 
-img, svg{
+img,
+svg {
     width: 100%;
     transition: all 0.2s ease;
 }
 
-.button-reset{
+.button-reset {
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
+
+/* ::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: blue;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #e6e7e7;
+    border-radius: 20px;
+    border: 3px solid orange;
+} */
