@@ -1,23 +1,19 @@
-import { useMemo } from 'react'
+import { useCardContext } from '../../context/cardsContext'
 import KanbanColumn from '../KanbanColumn/KanbanColumn'
 import './style/kenbanStyle.css'
-import TaskCard from '..//TaskCard/TaskCard'
-export default function KanbanContainer ({ columns }) {
-  const KanbanColumns = useMemo(
-    () => columns.map(column => {
-      return (
-        <KanbanColumn title={column.name} key={column.key}>
-          <TaskCard title='sherman' />
-          <TaskCard title='sherman' />
-          <TaskCard title='sherman' />
-          <TaskCard title='sherman' />
-        </KanbanColumn>
-      )
-    }), [columns])
 
+export default function KanbanContainer () {
+  const { cards, filterItemsWithStatus } = useCardContext()
+  const toDoItems = filterItemsWithStatus({ status: 'TO DO' })
+  const inProgessItems = filterItemsWithStatus({ status: 'IN PROGRESS' })
+  const doneItems = filterItemsWithStatus({ status: 'DONE' })
+
+  console.log('render de la vaina', toDoItems, cards)
   return (
     <section className='kenban-container'>
-      {KanbanColumns}
+      <KanbanColumn title='TO DO' items={toDoItems} />
+      <KanbanColumn title='IN PROGRESS' items={inProgessItems} />
+      <KanbanColumn title='DONE' items={doneItems} />
     </section>
   )
 }

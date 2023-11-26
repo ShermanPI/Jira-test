@@ -5,7 +5,7 @@ export default function TaskCard ({ title, tags, asigneeName }) {
     <div className='task-card-cotainer'>
       <b className='task-card-title'>{title}</b>
 
-      {tags &&
+      {tags[0] &&
         <ul className='tags-container'>
           {tags.map(el => {
             return <li className='tag-item' key={el.id}><p>{el.name}</p></li>

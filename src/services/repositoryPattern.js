@@ -1,15 +1,16 @@
 import generateUUIDv4 from '../utilities/generateUUID'
 
 const CardTaskRepositoryPattern = {
-  createTaskCard ({ id = generateUUIDv4(), title, description, tags = [], asignee, dueDate }) {
+  createTaskCard ({ id = generateUUIDv4(), title, description, tags = [], asignee, dueDate, status = 'TO DO' }) {
     if (!window.localStorage.getItem('cards')) window.localStorage.setItem('cards', '[]')
     const localStorageCards = window.localStorage.getItem('cards')
 
-    const newCard = { id, title, description, tags, asignee, dueDate, status: 'TO DO' }
+    const newCard = { id, title, description, tags, asignee, dueDate, status }
     const newCardInfoJson = JSON.stringify(newCard)
     const cards = JSON.parse(localStorageCards)
     cards.push(newCardInfoJson)
     window.localStorage.setItem('cards', JSON.stringify(cards))
+    return newCard
   },
   getAllTaskCards () {
     if (!window.localStorage.getItem('cards')) window.localStorage.setItem('cards', '[]')
@@ -49,7 +50,6 @@ const CardTaskRepositoryPattern = {
 
 const cardsStorageManagment = CardTaskRepositoryPattern
 
-console.log(CardTaskRepositoryPattern.getTaskCardsWithStatus({ status: 'DONE' }))
 CardTaskRepositoryPattern.updateTaskCard({ id: '009b2e4d-f16a-41e8-8f07-922e0e60f90b', title: 'haosld', description: 'esto se suna descrips ciajs', tags: [], asignee: 'sheshe', status: 'DONE' })
 
 export default cardsStorageManagment

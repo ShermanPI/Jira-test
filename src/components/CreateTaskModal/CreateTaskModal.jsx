@@ -1,7 +1,7 @@
 import useToggle from '../../hooks/useToggle'
 import './style/createTaskModal.css'
 import CloseIcon from '../../assets/SvgIcons/Icons'
-// import cardsStorageManagment from '../../services/repositoryPattern'
+import generateUUIDv4 from '../../utilities/generateUUID'
 
 export default function CreateTaskModal ({ buttonClassName, submitFunction }) {
   const [isHidden, toggleIsHidden] = useToggle({ initialValue: false })
@@ -10,9 +10,10 @@ export default function CreateTaskModal ({ buttonClassName, submitFunction }) {
     e.preventDefault()
     const form = new FormData(e.target)
     const title = form.get('title')
+    const tag = form.get('tag')
     const description = form.get('description')
     const dueDate = form.get('due-time')
-    submitFunction({ title, description, asignee: 'sherman', dueDate })
+    submitFunction({ title, description, asignee: 'sherman', dueDate, tags: [{ name: tag, id: generateUUIDv4() }] })
   }
 
   return (
@@ -25,7 +26,12 @@ export default function CreateTaskModal ({ buttonClassName, submitFunction }) {
           <form className='task-form' onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
             <header className='card-header'>
               <h2>Create Task Card</h2>
-              <button className='button-reset close-btn' onClick={toggleIsHidden}>
+              <button
+                className='button-reset close-btn' onClick={(e) => {
+                  e.preventDefault()
+                  toggleIsHidden()
+                }}
+              >
                 <CloseIcon />
               </button>
             </header>
@@ -38,7 +44,7 @@ export default function CreateTaskModal ({ buttonClassName, submitFunction }) {
             </div>
             <div className='input-group'>
               <label htmlFor='tag'> Tags </label>
-              <input type='text' className='input-text-reset' name='title' id='tag' placeholder='Tag Name' required />
+              <input type='text' className='input-text-reset' name='tag' id='tag' placeholder='Tag Name' required />
               <div>hey</div>
               <div>ehy</div>
               <div>hey</div>
@@ -48,11 +54,11 @@ export default function CreateTaskModal ({ buttonClassName, submitFunction }) {
               <input type='date' name='due-time' id='due-time' required />
             </div>
             <div className='input-group'>
-              <label htmlFor='Asignee'> Assignee </label>
-              <p>sherman</p>
+              <label htmlFor='asignee'> Assignee </label>
+              <input type='text' name='asignee' id='asignee' placeholder='Asignee' required />
             </div>
-            <button type='submit'>Create</button>
 
+            <button type='submit'>Create</button>
           </form>
         </div>
       </div>
