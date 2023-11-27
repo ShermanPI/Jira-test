@@ -39,17 +39,35 @@
 
 .asignee-container{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    gap: 0.8rem;
     align-items: center;
 }
 
 .asignee-container p{
+    font-weight: 500;
+    color: #000000c9;
     font-size: 1.4rem;
 }
 
 .asignee-img{
     display: flex;
-    width: 3.2rem;
+    width: 3rem;
     border-radius: 100%;
     overflow: hidden;
+}
+
+.task-control-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-control-container .delete-card-btn{
+    transition: all 0.2s ease;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.task-card-cotainer:hover .task-control-container .delete-card-btn{
+    opacity: 1;
 }

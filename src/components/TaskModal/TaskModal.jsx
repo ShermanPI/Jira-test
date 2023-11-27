@@ -1,8 +1,6 @@
 import CloseIcon from '../../assets/SvgIcons/Icons'
 
 export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, title, taskInfo }) {
-  console.log(taskInfo)
-
   return (
     <div className={`modal-shadow ${!isHidden && 'hidden-modal'}`} onClick={toggleIsHidden}>
       <div className='form-modal-container'>
@@ -19,14 +17,20 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
             </button>
           </header>
 
-          {/* <input type='text' className='title-input' name='title' id='title' placeholder='Title' required /> */}
-          <div className='input-group'>
-            <label htmlFor='title'> Title </label>
-            <input type='text' name='title' id='title' placeholder='Write a title for your task' defaultValue={taskInfo && taskInfo.title} required />
-          </div>
+          {
+            taskInfo
+              ? <input type='text' className='title-input' name='title' id='title' placeholder='Title' defaultValue={taskInfo.title} required />
+              : (
+                <div className='input-group'>
+                  <label htmlFor='title'> Title </label>
+                  <input type='text' name='title' id='title' placeholder='Write a title for your task' required />
+                </div>
+                )
+          }
+
           <div className='input-group'>
             <label htmlFor='task-description'> Description </label>
-            <textarea id='task-description' name='description' placeholder='This is a description' required />
+            <textarea id='description' name='description' placeholder='This is a description' defaultValue={taskInfo && taskInfo.description} required />
           </div>
           <div className='input-group'>
             <label htmlFor='tag'> Tags </label>
@@ -35,13 +39,16 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
             <div>ehy</div>
             <div>hey</div>
           </div>
-          <div className='input-group'>
-            <label htmlFor='due-time'> Due Date </label>
-            <input type='date' name='due-time' id='due-time' required />
-          </div>
-          <div className='input-group'>
-            <label htmlFor='asignee'> Assignee </label>
-            <input type='text' name='asignee' id='asignee' placeholder='Asignee' required />
+          <div className='due-time-container'>
+
+            <div className='input-group'>
+              <label htmlFor='due-time'> Due Date </label>
+              <input type='date' name='due-time' id='due-time' required />
+            </div>
+            <div className='input-group'>
+              <label htmlFor='asignee'> Assignee </label>
+              <input type='text' name='asignee' id='asignee' placeholder='Asignee' required />
+            </div>
           </div>
 
           <button type='submit'>Create</button>

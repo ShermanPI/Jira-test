@@ -16,7 +16,7 @@ export default function TaskCard ({ id, title, tags, asigneeName }) {
             })}
           </ul>}
 
-        <div className='task-container'>
+        <div className='task-control-container'>
 
           <div className='asignee-container'>
             <div className='asignee-img'>
@@ -24,6 +24,8 @@ export default function TaskCard ({ id, title, tags, asigneeName }) {
             </div>
             <p>{asigneeName}</p>
           </div>
+
+          <button className='delete-card-btn'>delete</button>
 
         </div>
       </div>
