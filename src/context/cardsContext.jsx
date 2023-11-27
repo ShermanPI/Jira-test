@@ -8,6 +8,13 @@ const CardsContextProvider = ({ children }) => {
   const [cards, setCards] = useState(cardsStorageManagment.getAllTaskCards())
   const actualActiveModal = useRef('')
   const [isTaskModalHidden, toggleIsTaskModalHidden] = useToggle({ initialValue: false })
+  const [activeTaskInfo, setActiveTaskInfo] = useState({})
+
+  const showTaskModal = ({ id }) => {
+    toggleIsTaskModalHidden()
+    const taskIndex = cards.findIndex((el) => el.id === id)
+    setActiveTaskInfo(cards[taskIndex])
+  }
 
   const filterItemsWithStatus = ({ status }) => {
     const cardsWithStatus = cards.filter(el => el.status === status)
@@ -22,7 +29,7 @@ const CardsContextProvider = ({ children }) => {
   }
 
   return (
-    <cardsContext.Provider value={{ cards, filterItemsWithStatus, addItem, actualActiveModal, isTaskModalHidden, toggleIsTaskModalHidden }}>
+    <cardsContext.Provider value={{ cards, filterItemsWithStatus, addItem, actualActiveModal, isTaskModalHidden, showTaskModal, activeTaskInfo, toggleIsTaskModalHidden }}>
       {children}
     </cardsContext.Provider>
   )

@@ -1,6 +1,8 @@
 import CloseIcon from '../../assets/SvgIcons/Icons'
 
-export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, title }) {
+export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, title, taskInfo }) {
+  console.log(taskInfo)
+
   return (
     <div className={`modal-shadow ${!isHidden && 'hidden-modal'}`} onClick={toggleIsHidden}>
       <div className='form-modal-container'>
@@ -9,8 +11,8 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
             <h2>{title}</h2>
             <button
               className='button-reset close-btn' onClick={(e) => {
-                e.preventDefault()
                 toggleIsHidden()
+                e.preventDefault()
               }}
             >
               <CloseIcon />
@@ -20,7 +22,7 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
           {/* <input type='text' className='title-input' name='title' id='title' placeholder='Title' required /> */}
           <div className='input-group'>
             <label htmlFor='title'> Title </label>
-            <input type='text' name='title' id='title' placeholder='Write a title for your task' required />
+            <input type='text' name='title' id='title' placeholder='Write a title for your task' defaultValue={taskInfo && taskInfo.title} required />
           </div>
           <div className='input-group'>
             <label htmlFor='task-description'> Description </label>
