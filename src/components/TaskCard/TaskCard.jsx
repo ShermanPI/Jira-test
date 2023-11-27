@@ -1,8 +1,11 @@
+import { useCardContext } from '../../context/cardsContext'
 import './Style/TaskCard.css'
 
-export default function TaskCard ({ title, tags, asigneeName }) {
+export default function TaskCard ({ id, title, tags, asigneeName }) {
+  const { toggleIsTaskModalHidden } = useCardContext()
+
   return (
-    <div className='task-card-cotainer'>
+    <div className='task-card-cotainer' onClick={toggleIsTaskModalHidden}>
       <b className='task-card-title'>{title}</b>
 
       {tags[0] &&

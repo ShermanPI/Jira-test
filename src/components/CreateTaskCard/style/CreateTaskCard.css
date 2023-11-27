@@ -75,7 +75,7 @@ label{
 
 .input-group textarea{
     min-height: 5rem;
-    padding: 1rem;
+    padding: 0.4rem 1rem;
     border: none;
     resize: none;
     outline: none;
@@ -103,6 +103,6 @@ label{
 }
 
 .card-header h2{
-    font-size: 1.3rem;
-    color: #00000071;
+    font-size: 1.6rem;
+    color: #388bff;
 }

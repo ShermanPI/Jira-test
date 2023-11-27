@@ -1,10 +1,13 @@
-import { createContext, useContext, useState } from 'react'
+import useToggle from '../hooks/useToggle'
+import { createContext, useContext, useRef, useState } from 'react'
 import cardsStorageManagment from '../services/repositoryPattern'
 
 const cardsContext = createContext()
 
 const CardsContextProvider = ({ children }) => {
   const [cards, setCards] = useState(cardsStorageManagment.getAllTaskCards())
+  const actualActiveModal = useRef('')
+  const [isTaskModalHidden, toggleIsTaskModalHidden] = useToggle({ initialValue: false })
 
   const filterItemsWithStatus = ({ status }) => {
     const cardsWithStatus = cards.filter(el => el.status === status)
@@ -19,7 +22,7 @@ const CardsContextProvider = ({ children }) => {
   }
 
   return (
-    <cardsContext.Provider value={{ cards, filterItemsWithStatus, addItem }}>
+    <cardsContext.Provider value={{ cards, filterItemsWithStatus, addItem, actualActiveModal, isTaskModalHidden, toggleIsTaskModalHidden }}>
       {children}
     </cardsContext.Provider>
   )

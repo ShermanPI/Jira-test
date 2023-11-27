@@ -9,7 +9,7 @@ export default function KanbanColumn ({ title, items }) {
       </h3>
       {items.map(el => {
         return (
-          <TaskCard title={el.title} key={el.id} asigneeName={el.asignee} tags={el.tags} />
+          <TaskCard title={el.title} key={el.id} id={el.id} asigneeName={el.asignee} tags={el.tags} />
         )
       })}
     </div>
