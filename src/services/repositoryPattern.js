@@ -45,9 +45,28 @@ const CardTaskRepositoryPattern = {
     const cards = this.getAllTaskCards()
     const cardsWithStatus = cards.filter(el => el.status === status)
     return cardsWithStatus
+  },
+  createTag ({ name }) {
+    if (!window.localStorage.getItem('tags')) window.localStorage.setItem('tags', '[]')
+    const tagList = this.getAllTags()
+
+    const isItemAdded = tagList.some(el => el.name === name)
+
+    if (!isItemAdded) {
+      tagList.push({ name, id: generateUUIDv4() })
+      window.localStorage.setItem('tags', JSON.stringify(tagList))
+      return { name, id: generateUUIDv4() }
+    }
+  },
+  getAllTags () {
+    if (!window.localStorage.getItem('tags')) window.localStorage.setItem('tags', '[]')
+    const localStorageTags = window.localStorage.getItem('tags')
+    return JSON.parse(localStorageTags)
   }
 }
 
 const cardsStorageManagment = CardTaskRepositoryPattern
 
+console.log(cardsStorageManagment.getAllTags())
+// console.log(cardsStorageManagment.createTag({ name: `one tag ${Math.random() * 100}` }))
 export default cardsStorageManagment

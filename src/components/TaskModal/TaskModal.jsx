@@ -1,15 +1,30 @@
+import './style/taskModal.css'
 import { useRef } from 'react'
 import CloseIcon from '../../assets/SvgIcons/Icons'
+import Tag from '../Tag/Tag'
+import { useCardContext } from '../../context/cardsContext'
 
 export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, title, taskInfo }) {
   const today = new Date()
   const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
   const formRef = useRef()
+  const tagInputRef = useRef()
+  const { tags, addTag } = useCardContext()
 
-  const handleCloseModal = () => {
+  const addTagHandler = () => {
+    const name = tagInputRef.current.value
+    if (name) {
+      console.log('hey')
+      addTag({ name })
+    }
+  }
+
+  const handleCloseModal = (e) => {
     toggleIsHidden()
     if (taskInfo) {
       handleSubmit({ formRef, id: taskInfo.id })
+    } else {
+      handleSubmit(e)
     }
   }
 
@@ -27,7 +42,7 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
             <CloseIcon />
           </button>
         </header>
-        <form ref={formRef} className='task-form' onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
+        <form ref={formRef} className='task-form' onSubmit={handleCloseModal} onClick={(e) => e.stopPropagation()}>
 
           {
             taskInfo
@@ -41,16 +56,24 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
           }
 
           <div className='input-group'>
-            <label htmlFor='task-description'> Description </label>
+            <label htmlFor='description'> Description </label>
             <textarea id='description' name='description' placeholder='This is a description' defaultValue={taskInfo && taskInfo.description} required />
           </div>
+
           <div className='input-group'>
-            <label htmlFor='tag'> Tags </label>
-            <input type='text' className='input-text-reset' name='tag' id='tag' placeholder='Tag Name' required />
-            <div>hey</div>
-            <div>ehy</div>
-            <div>hey</div>
+            <label> Tags </label>
+            <ul className='card-tags-container'>
+              {tags.map(el => {
+                return <Tag name={el.name} key={el.id} isSelected />
+              })}
+
+              <li>
+                <input ref={tagInputRef} type='text' name='new-tag-input' id='new-tag-input' placeholder='Tag Name' />
+                <div className='create-tag-btn' onClick={addTagHandler}>+ Create tag</div>
+              </li>
+            </ul>
           </div>
+
           <div className='due-time-container'>
 
             <div className='input-group'>

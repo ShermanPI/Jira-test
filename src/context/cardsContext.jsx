@@ -1,8 +1,6 @@
 import useToggle from '../hooks/useToggle'
 import { createContext, useContext, useRef, useState } from 'react'
 import cardsStorageManagment from '../services/repositoryPattern'
-import generateUUIDv4 from '../utilities/generateUUID'
-
 const cardsContext = createContext()
 
 const CardsContextProvider = ({ children }) => {
@@ -10,6 +8,7 @@ const CardsContextProvider = ({ children }) => {
   const actualActiveModal = useRef('')
   const [isTaskModalHidden, toggleIsTaskModalHidden] = useToggle({ initialValue: false })
   const [activeTaskInfo, setActiveTaskInfo] = useState({})
+  const [tags, setTags] = useState(cardsStorageManagment.getAllTags())
 
   const showTaskModal = ({ id }) => {
     toggleIsTaskModalHidden()
@@ -40,22 +39,47 @@ const CardsContextProvider = ({ children }) => {
   const updateItem = ({ formRef, id }) => {
     const form = new FormData(formRef.current)
     const title = form.get('title')
-    const tag = form.get('tag')
     const description = form.get('description')
     const dueDate = form.get('due-time')
 
-    const indexToEdit = cards.findIndex((el) => el.id === id)
-    const newCards = [...cards]
-    newCards[indexToEdit] = { id, title, description, tags: [{ name: tag, id: generateUUIDv4() }], dueDate, asignee: 'sherman' }
-    setCards(newCards)
-    cardsStorageManagment.updateTaskCard({})
+    const updatedItem = { id, title, tags: activeTaskInfo.tags, description, dueDate, status: activeTaskInfo.status, asignee: 'sherman' }
 
-    console.log(title, tag, description, dueDate, '🙂🙂🙂🙂')
-    console.log(id, '🚀🚀🚀🚀')
+    if (JSON.stringify(activeTaskInfo) !== JSON.stringify(updatedItem)) {
+      const indexToEdit = cards.findIndex((el) => el.id === id)
+      const newCards = [...cards]
+      newCards[indexToEdit] = updatedItem
+      setCards(newCards)
+      cardsStorageManagment.updateTaskCard(updatedItem)
+    }
+  }
+
+  const addTag = ({ name }) => {
+    const itemAdded = cardsStorageManagment.createTag({ name })
+    if (itemAdded) {
+      const newTags = [...tags]
+      newTags.push(itemAdded)
+      setTags(newTags)
+    }
   }
 
   return (
-    <cardsContext.Provider value={{ cards, updateItem, deleteItem, filterItemsWithStatus, addItem, actualActiveModal, isTaskModalHidden, showTaskModal, activeTaskInfo, toggleIsTaskModalHidden }}>
+    <cardsContext.Provider value={
+      {
+        updateItem,
+        deleteItem,
+        filterItemsWithStatus,
+        addItem,
+        showTaskModal,
+        addTag,
+        cards,
+        actualActiveModal,
+        isTaskModalHidden,
+        activeTaskInfo,
+        toggleIsTaskModalHidden,
+        tags
+      }
+}
+    >
       {children}
     </cardsContext.Provider>
   )

@@ -9,14 +9,15 @@ export default function CreateTaskCard ({ buttonClassName }) {
   const { addItem } = useCardContext()
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const form = new FormData(e.target)
-    const title = form.get('title')
-    const tag = form.get('tag')
-    const description = form.get('description')
-    const dueDate = form.get('due-time')
-    addItem({ title, description, asignee: 'sherman', dueDate, tags: [{ name: tag, id: generateUUIDv4() }] })
-    e.target.reset()
+    if (e) {
+      e.preventDefault()
+      const form = new FormData(e.target)
+      const title = form.get('title')
+      const description = form.get('description')
+      const dueDate = form.get('due-time')
+      addItem({ title, description, asignee: 'sherman', dueDate, tags: [{ name: 'new', id: generateUUIDv4() }] })
+      e.target.reset()
+    }
   }
 
   return (
