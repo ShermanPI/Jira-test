@@ -30,7 +30,7 @@ El código fuente debe subirlo a un repositorio de Git de su preferencia y envia
     - Fecha de vencimiento
 - Los formularios para eliminar tarjetas deben colocarse en un modal. 
 - los usuarios pueden editar tareas (Cards).
-- los usuarios pueden eliminar tareas (Cards). 
+- los usuarios pueden eliminar tareas (Cards).
 - Cuando un usuario agrega una nueva tarjeta, ésta debe colocarse en la parte inferior de la columna "Tareas pendientes".
 - Se debe mostrar un modal de confirmación antes de eliminar una tarjeta.
 

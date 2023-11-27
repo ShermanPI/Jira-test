@@ -96,10 +96,12 @@ label{
 .card-header{
     display: flex;
     align-items: center;
+    justify-content: center;
 
     gap: 1rem;
     padding-inline: 1rem;
     font-weight: lighter;
+    padding: 1.8rem 3rem 0rem 3rem;
 }
 
 .card-header h2{

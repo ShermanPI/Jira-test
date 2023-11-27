@@ -16,6 +16,7 @@ export default function CreateTaskCard ({ buttonClassName }) {
     const description = form.get('description')
     const dueDate = form.get('due-time')
     addItem({ title, description, asignee: 'sherman', dueDate, tags: [{ name: tag, id: generateUUIDv4() }] })
+    e.target.reset()
   }
 
   return (

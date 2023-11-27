@@ -3,11 +3,11 @@ import TaskModal from '../TaskModal/TaskModal'
 import './style/TaskModalPreview.css'
 
 export default function TaskModalPreview () {
-  const { isTaskModalHidden, activeTaskInfo, toggleIsTaskModalHidden } = useCardContext()
+  const { isTaskModalHidden, activeTaskInfo, toggleIsTaskModalHidden, updateItem } = useCardContext()
 
   return (
     <>
-      <TaskModal isHidden={isTaskModalHidden} toggleIsHidden={toggleIsTaskModalHidden} title='Task Preview' taskInfo={activeTaskInfo} />
+      <TaskModal isHidden={isTaskModalHidden} handleSubmit={updateItem} toggleIsHidden={toggleIsTaskModalHidden} title='Task Preview' taskInfo={activeTaskInfo} />
     </>
   )
 }

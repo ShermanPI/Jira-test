@@ -2,7 +2,12 @@ import { useCardContext } from '../../context/cardsContext'
 import './Style/TaskCard.css'
 
 export default function TaskCard ({ id, title, tags, asigneeName }) {
-  const { showTaskModal } = useCardContext()
+  const { showTaskModal, deleteItem } = useCardContext()
+
+  const handleDelete = (e) => {
+    e.stopPropagation()
+    deleteItem({ id })
+  }
 
   return (
     <>
@@ -25,7 +30,7 @@ export default function TaskCard ({ id, title, tags, asigneeName }) {
             <p>{asigneeName}</p>
           </div>
 
-          <button className='delete-card-btn'>delete</button>
+          <button className='delete-card-btn' onClick={handleDelete}>delete</button>
 
         </div>
       </div>

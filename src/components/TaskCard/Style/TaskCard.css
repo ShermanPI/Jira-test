@@ -62,7 +62,7 @@
     justify-content: space-between;
 }
 
-.task-control-container .delete-card-btn{
+.task-card-container .delete-card-btn{
     transition: all 0.2s ease;
     cursor: pointer;
     opacity: 0;

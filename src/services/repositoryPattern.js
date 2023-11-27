@@ -50,6 +50,4 @@ const CardTaskRepositoryPattern = {
 
 const cardsStorageManagment = CardTaskRepositoryPattern
 
-CardTaskRepositoryPattern.updateTaskCard({ id: '009b2e4d-f16a-41e8-8f07-922e0e60f90b', title: 'haosld', description: 'esto se suna descrips ciajs', tags: [], asignee: 'sheshe', status: 'DONE' })
-
 export default cardsStorageManagment

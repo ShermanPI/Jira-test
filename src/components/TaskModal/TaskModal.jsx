@@ -1,21 +1,33 @@
+import { useRef } from 'react'
 import CloseIcon from '../../assets/SvgIcons/Icons'
 
 export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, title, taskInfo }) {
+  const today = new Date()
+  const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+  const formRef = useRef()
+
+  const handleCloseModal = () => {
+    toggleIsHidden()
+    if (taskInfo) {
+      handleSubmit({ formRef, id: taskInfo.id })
+    }
+  }
+
   return (
-    <div className={`modal-shadow ${!isHidden && 'hidden-modal'}`} onClick={toggleIsHidden}>
+    <div className={`modal-shadow ${!isHidden && 'hidden-modal'}`} onClick={handleCloseModal}>
       <div className='form-modal-container'>
-        <form className='task-form' onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
-          <header className='card-header'>
-            <h2>{title}</h2>
-            <button
-              className='button-reset close-btn' onClick={(e) => {
-                toggleIsHidden()
-                e.preventDefault()
-              }}
-            >
-              <CloseIcon />
-            </button>
-          </header>
+        <header className='card-header'>
+          <h2>{title}</h2>
+          <button
+            className='button-reset close-btn' onClick={(e) => {
+              toggleIsHidden()
+              e.preventDefault()
+            }}
+          >
+            <CloseIcon />
+          </button>
+        </header>
+        <form ref={formRef} className='task-form' onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
 
           {
             taskInfo
@@ -43,7 +55,10 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
 
             <div className='input-group'>
               <label htmlFor='due-time'> Due Date </label>
-              <input type='date' name='due-time' id='due-time' required />
+              <input
+                type='date' name='due-time' id='due-time' defaultValue={taskInfo ? taskInfo.dueDate : date} required
+                min={date}
+              />
             </div>
             <div className='input-group'>
               <label htmlFor='asignee'> Assignee </label>
