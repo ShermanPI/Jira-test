@@ -1,0 +1,42 @@
+.add-tag-container{
+    display: flex;
+    height: 100%;
+}
+
+.new-tag-input{
+    max-width: 10rem;
+    border: none;
+}
+
+.create-tag-btn {
+    border-radius: 0rem 0.4rem 0.4rem 0rem;
+    cursor: pointer;
+    padding-inline: 0.4rem;
+    font-size: 1.3rem;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #388bff;
+    position: relative;
+    transition: all 0.1s ease-in-out;
+    height: 100%;
+}
+
+.create-tag-btn svg{
+    fill: #fff;
+}
+
+.create-tag-btn:hover {
+    background-color: #388bffd7;
+}
+
+.new-tag-input{
+    outline: none;
+    outline: none;
+    padding: 0.4rem 1rem;
+    width: 100%;
+    border: 2px solid #388bff;
+    border-radius: 0.4rem 0rem 0rem 0.4rem;    
+    background-color: #fff;
+}

@@ -1,10 +1,13 @@
 import './style/index.css'
+import './style/app.css'
+import { CardsContextProvider } from './context/cardsContext'
+import { Board } from './components/Board/Board'
 
 function App () {
   return (
-    <div>
-      Hello World
-    </div>
+    <CardsContextProvider>
+      <Board />
+    </CardsContextProvider>
   )
 }
 

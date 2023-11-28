@@ -1,0 +1,13 @@
+.due-time-container{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.due-time-container>*{
+    width: 100%;
+}
+
+.modal-submit-btn{
+    align-self: flex-end;
+}

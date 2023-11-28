@@ -1,0 +1,42 @@
+.delete-modal-hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.delete-task-modal{
+    background-color: #fff;
+    padding: 1.6rem 4rem;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.delete-tag-buttons-container{
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+}
+
+.delete-tag-buttons-container button{
+    padding-block: 1rem;
+    width: 100%;
+    border: none;
+    background-color: #dfdfdf;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.delete-tag-buttons-container button:nth-child(1):hover{
+    background-color: #cdcdcd;
+}
+
+.delete-tag-buttons-container button:nth-child(2){
+    background-color: #dc3545;
+    color: #fff;
+}
+
+
+.delete-tag-buttons-container button:nth-child(2):hover{
+    background-color: #db2436;
+}

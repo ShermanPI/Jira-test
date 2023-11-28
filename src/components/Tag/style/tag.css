@@ -1,0 +1,47 @@
+.card-tags-container {
+    display: flex;
+    gap: 0.6rem;
+    list-style: none;
+    flex-wrap: wrap;
+    margin-top: 0.6rem;
+}
+
+.card-tag {
+    /* margin-block: 1rem; */
+    cursor: pointer;
+    background-color: #e6e6e6;
+    padding: 0.2rem 0.8rem;
+    border-radius: 0.4rem;
+    border: 2px solid #e6e6e6;
+    padding-inline: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.card-tag p {
+    color: #000;
+    font-size: 1.4rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.card-tag:hover p {
+    color: #388bff;
+}
+
+.selected-tag {
+    background-color: #388bff;
+    border-color: #388bff;
+}
+
+.selected-tag p {
+    color: #e6e6e6;
+}
+
+.selected-tag:hover{
+    background-color: #e6e6e6;
+    border-color: #388bffa0;
+}
+
+.selected-tag:hover p {
+    color: #388bff;
+}

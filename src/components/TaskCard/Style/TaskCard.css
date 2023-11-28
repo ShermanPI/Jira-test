@@ -1,0 +1,94 @@
+.task-card-cotainer {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 0.3rem;
+    padding: 1.2rem;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.49);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    gap: 1rem;
+}
+
+.task-card-cotainer:hover{
+    background-color: #00000012;
+}
+
+.task-card-title{
+    font-size: 1.4rem;
+    /* font-weight: normal; */
+}
+
+.tags-container {
+    display: flex;
+    gap: 0.4rem;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.tags-container p{
+    font-size: 1.3rem;
+}
+
+.tag-item{
+    background-color: #f1f2f4;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.2rem;
+}
+
+.asignee-container{
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.asignee-container p{
+    font-weight: 500;
+    color: #000000c9;
+    font-size: 1.4rem;
+}
+
+.asignee-img{
+    display: flex;
+    width: 3rem;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.task-control-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.delete-card-btn{
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    background-color: #dc3545;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.2rem;
+    margin-left: auto;
+}
+
+.delete-card-btn:hover{
+    background-color: #df0f24;
+}
+
+.task-card-cotainer:hover .delete-card-btn{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.delete-card-btn svg{
+    fill: #fff;
+}

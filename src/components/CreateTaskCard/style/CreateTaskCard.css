@@ -1,0 +1,112 @@
+.modal-shadow{
+    position: fixed;
+    background-color: #00000071;
+    width: 100%;
+    height: 100vh;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.hidden-modal{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.form-modal-container{
+    background-color: #fff;
+    width: 100%;
+    max-width: 62rem;
+    border-radius: 0.4rem;
+    margin-inline: 2rem;
+}
+
+.task-form{
+    display: flex;
+    flex-direction: column;
+    padding: 1.8rem 2rem;
+    gap: 1.6rem;
+}
+
+.task-form-input{
+    border: 2px solid #0000002c;
+    outline: none;
+    padding: 0.4rem 1rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.4rem;
+}
+
+.task-form-input:hover{
+    background-color: #0000000e;
+}
+
+.task-form-input:focus{
+    border: 2px solid #388bff;
+    border-radius: 0.4rem;
+    background-color: #fff;
+}
+
+.close-btn{
+    width: 2.6rem;
+    margin-left: auto;
+}
+
+.close-btn:hover svg{
+    fill: #000000bd;
+}
+
+.title-input{
+    font-size: 2.4rem;
+}
+
+label{
+    font-size: 1.4rem;
+    padding-left: 1rem;
+    padding-bottom: 0.2rem;
+    color: #000000cf;
+    font-weight: bold;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group textarea{
+    min-height: 5rem;
+    padding: 0.4rem 1rem;
+    border: none;
+    resize: none;
+    outline: none;
+    border: 2px solid #0000002c;
+    border-radius: 0.4rem;
+}
+
+.input-group textarea:hover{
+    background-color: #0000000e;
+}
+
+.input-group textarea:focus{
+    border: 2px solid #388bff;
+    border-radius: 0.4rem;
+    background-color: #fff;
+}
+
+.card-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+    padding-inline: 1rem;
+    font-weight: lighter;
+    padding: 1.8rem 3rem 0rem 3rem;
+}
+
+.card-header h2{
+    font-size: 1.6rem;
+    color: #388bff;
+}

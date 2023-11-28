@@ -1,0 +1,8 @@
+.kenban-container{
+    max-height: 100%;
+    width: 100%;
+    padding: 4rem 3.6rem;
+    display: flex;
+    gap: 1.4rem;
+    overflow: auto;
+}
