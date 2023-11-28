@@ -64,8 +64,14 @@ const CardTaskRepositoryPattern = {
     const localStorageTags = window.localStorage.getItem('tags')
     return JSON.parse(localStorageTags)
   },
-  addSelectedTag ({ note, tag }) {
-    note.tags.push(tag)
+  updateSelectedTag ({ note, tag, isActive }) {
+    if (!isActive) {
+      note.tags.push(tag)
+    } else {
+      const tagIndexToDelete = note.tags.findIndex((el) => el.id === tag.id)
+      if (tagIndexToDelete !== -1) note.tags.splice(tagIndexToDelete, 1)
+    }
+
     const cards = this.getAllTaskCards()
     const indexToEdit = cards.findIndex((el) => el.id === note.id)
     cards[indexToEdit] = note
@@ -73,10 +79,11 @@ const CardTaskRepositoryPattern = {
       return JSON.stringify(el)
     })
     window.localStorage.setItem('cards', JSON.stringify(totalParseCards))
+
+    return cards
   }
 }
 
 const cardsStorageManagment = CardTaskRepositoryPattern
 
-console.log(cardsStorageManagment.getAllTaskCards())
 export default cardsStorageManagment

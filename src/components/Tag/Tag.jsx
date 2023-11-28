@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import './style/tag.css'
-import cardsStorageManagment from '../../services/repositoryPattern'
+import { useCardContext } from '../../context/cardsContext'
 
 export default function Tag ({ id, taskInfo, name, isSelected }) {
+  const { updateSelectedTag } = useCardContext()
+
   const [isActive, setIsActive] = useState()
   useEffect(() => {
     setIsActive(isSelected)
@@ -10,7 +12,7 @@ export default function Tag ({ id, taskInfo, name, isSelected }) {
 
   const handleClick = () => {
     if (taskInfo) {
-      cardsStorageManagment.addSelectedTag({ note: taskInfo, tag: { id, name } })
+      updateSelectedTag({ note: taskInfo, tag: { id, name }, isActive })
     }
     setIsActive(!isActive)
   }

@@ -62,6 +62,11 @@ const CardsContextProvider = ({ children }) => {
     }
   }
 
+  const updateSelectedTag = ({ note, tag, isActive }) => {
+    const newNotes = cardsStorageManagment.updateSelectedTag({ note, tag, isActive })
+    setCards(newNotes)
+  }
+
   return (
     <cardsContext.Provider value={
       {
@@ -71,6 +76,7 @@ const CardsContextProvider = ({ children }) => {
         addItem,
         showTaskModal,
         addTag,
+        updateSelectedTag,
         cards,
         actualActiveModal,
         isTaskModalHidden,
