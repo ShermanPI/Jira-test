@@ -3,7 +3,7 @@ import './style/CreateTaskCard.css'
 import { useCardContext } from '../../context/cardsContext'
 import TaskModal from '../TaskModal/TaskModal'
 
-export default function CreateTaskCard ({ buttonClassName }) {
+export default function CreateTaskCard () {
   const [isHidden, toggleIsHidden] = useToggle({ initialValue: false })
   const { addItem } = useCardContext()
 

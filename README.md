@@ -26,9 +26,9 @@ El código fuente debe subirlo a un repositorio de Git de su preferencia y envia
     ✅ - Título 
     ✅ - Descripción 
     ✅ - Etiqueta (SEO, formato largo, publicación de blog, etc.) 
-    - Asignatario 
+    ✅ - Asignatario 
     ✅ - Fecha de vencimiento
-- los usuarios pueden editar tareas (Cards).
+✅ - los usuarios pueden editar tareas (Cards).
 ✅ - los usuarios pueden eliminar tareas (Cards).
 ✅ - Cuando un usuario agrega una nueva tarjeta, ésta debe colocarse en la parte inferior de la columna "Tareas pendientes".
 ✅ - Se debe mostrar un modal de confirmación antes de eliminar una tarjeta.
