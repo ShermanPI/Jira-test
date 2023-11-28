@@ -1,10 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './style/tag.css'
+import cardsStorageManagment from '../../services/repositoryPattern'
 
-export default function Tag ({ id, name, isSelected }) {
-  const [isActive, setIsActive] = useState(isSelected)
+export default function Tag ({ id, taskInfo, name, isSelected }) {
+  const [isActive, setIsActive] = useState()
+  useEffect(() => {
+    setIsActive(isSelected)
+  }, [isSelected])
 
   const handleClick = () => {
+    if (taskInfo) {
+      cardsStorageManagment.addSelectedTag({ note: taskInfo, tag: { id, name } })
+    }
     setIsActive(!isActive)
   }
 

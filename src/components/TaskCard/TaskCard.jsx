@@ -14,7 +14,7 @@ export default function TaskCard ({ id, title, tags, asigneeName }) {
 
       <div className='task-card-cotainer' onClick={() => showTaskModal({ id })}>
         <b className='task-card-title'>{title}</b>
-        {tags[0] &&
+        {tags.length > 0 &&
           <ul className='tags-container'>
             {tags.map(el => {
               return <li className='tag-item' key={el.id}><p>{el.name}</p></li>

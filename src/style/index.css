@@ -28,7 +28,7 @@ b {
 img,
 svg {
     width: 100%;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease-in-out;
 }
 
 .button-reset {

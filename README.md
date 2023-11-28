@@ -22,15 +22,14 @@ El código fuente debe subirlo a un repositorio de Git de su preferencia y envia
 ✅ - Implemente un tablero Kanban con tres columnas, "To Do", "In Progress" y "Done"
 ✅ - Los formularios para crear tarjetas deben colocarse en un modal. 
 ✅ - los usuarios pueden agregar tareas (Cards).
-- Cada tarjeta debe tener los siguientes campos: 
-    - Título 
-    - Descripción 
+✅- Cada tarjeta debe tener los siguientes campos: 
+    ✅ - Título 
+    ✅ - Descripción 
     - Etiqueta (SEO, formato largo, publicación de blog, etc.) 
     - Asignatario 
-    - Fecha de vencimiento
-- Los formularios para eliminar tarjetas deben colocarse en un modal. 
+    ✅ - Fecha de vencimiento
 - los usuarios pueden editar tareas (Cards).
-- los usuarios pueden eliminar tareas (Cards).
-- Cuando un usuario agrega una nueva tarjeta, ésta debe colocarse en la parte inferior de la columna "Tareas pendientes".
+✅ - los usuarios pueden eliminar tareas (Cards).
+✅ - Cuando un usuario agrega una nueva tarjeta, ésta debe colocarse en la parte inferior de la columna "Tareas pendientes".
 - Se debe mostrar un modal de confirmación antes de eliminar una tarjeta.
 

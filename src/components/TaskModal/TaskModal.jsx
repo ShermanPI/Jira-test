@@ -14,7 +14,7 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
   const addTagHandler = () => {
     const name = tagInputRef.current.value
     if (name) {
-      console.log('hey')
+      tagInputRef.current.value = ''
       addTag({ name })
     }
   }
@@ -64,7 +64,8 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
             <label> Tags </label>
             <ul className='card-tags-container'>
               {tags.map(el => {
-                return <Tag name={el.name} key={el.id} isSelected />
+                const isTagSelected = (taskInfo && JSON.stringify(taskInfo) !== '{}') ? taskInfo.tags.some(tag => tag.id === el.id) : false
+                return <Tag name={el.name} key={el.id} id={el.id} taskInfo={taskInfo} isSelected={isTagSelected} />
               })}
 
               <li>

@@ -19,7 +19,7 @@
 .card-tag p {
     color: #000;
     font-size: 1.4rem;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease-in-out;
 }
 
 .card-tag:hover p {
@@ -45,20 +45,20 @@
 }
 
 .create-tag-btn {
-    background-color: #388bff;
     border-radius: 0.4rem;
     cursor: pointer;
-    color: #e6e6e6;
     padding-inline: 1rem;
     font-size: 1.3rem;
     height: 100%;
     align-items: center;
     display: flex;
     justify-content: center;
+    background-color: #e6e6e6;
+    color: #388bff;
+    transition: all 0.2s ease-in-out;
 }
 
 .create-tag-btn:hover {
-    background-color: #e6e6e6;
-    color: #388bff;
-
+    background-color: #388bff;
+    color: #e6e6e6;
 }

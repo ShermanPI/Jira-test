@@ -22,10 +22,11 @@ const CardTaskRepositoryPattern = {
 
     return totalParseCards
   },
-  updateTaskCard ({ id, title, description, tags, asignee, dueDate, status }) {
+  updateTaskCard ({ id, title, description, asignee, dueDate, status }) {
     const cards = this.getAllTaskCards()
     const indexToEdit = cards.findIndex((el) => el.id === id)
-    cards[indexToEdit] = { id, title, description, tags, asignee, dueDate, status }
+    cards[indexToEdit] = { id, title, description, tags: cards[indexToEdit].tags, asignee, dueDate, status }
+
     const totalStringifyCards = cards.map(el => {
       return JSON.stringify(el)
     })
@@ -62,11 +63,20 @@ const CardTaskRepositoryPattern = {
     if (!window.localStorage.getItem('tags')) window.localStorage.setItem('tags', '[]')
     const localStorageTags = window.localStorage.getItem('tags')
     return JSON.parse(localStorageTags)
+  },
+  addSelectedTag ({ note, tag }) {
+    note.tags.push(tag)
+    const cards = this.getAllTaskCards()
+    const indexToEdit = cards.findIndex((el) => el.id === note.id)
+    cards[indexToEdit] = note
+    const totalParseCards = cards.map(el => {
+      return JSON.stringify(el)
+    })
+    window.localStorage.setItem('cards', JSON.stringify(totalParseCards))
   }
 }
 
 const cardsStorageManagment = CardTaskRepositoryPattern
 
-console.log(cardsStorageManagment.getAllTags())
-// console.log(cardsStorageManagment.createTag({ name: `one tag ${Math.random() * 100}` }))
+console.log(cardsStorageManagment.getAllTaskCards())
 export default cardsStorageManagment

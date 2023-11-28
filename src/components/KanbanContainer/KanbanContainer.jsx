@@ -8,7 +8,6 @@ export default function KanbanContainer () {
   const toDoItems = filterItemsWithStatus({ status: 'TO DO' })
   const inProgessItems = filterItemsWithStatus({ status: 'IN PROGRESS' })
   const doneItems = filterItemsWithStatus({ status: 'DONE' })
-
   return (
     <>
       <TaskModalPreview />
