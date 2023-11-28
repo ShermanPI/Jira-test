@@ -2,7 +2,7 @@ import { useCardContext } from '../../context/cardsContext'
 import DeleteTaskCardModal from '../DeleteTaskCardModal/DeleteTaskCardModal'
 import './Style/TaskCard.css'
 
-export default function TaskCard ({ id, title, tags, asigneeName }) {
+export default function TaskCard ({ id, title, tags, asignee }) {
   const { showTaskModal, deleteItem } = useCardContext()
 
   const handleDelete = (e) => {
@@ -12,7 +12,6 @@ export default function TaskCard ({ id, title, tags, asigneeName }) {
 
   return (
     <>
-
       <div className='task-card-cotainer' onClick={() => showTaskModal({ id })}>
         <b className='task-card-title'>{title}</b>
         {tags.length > 0 &&
@@ -24,12 +23,13 @@ export default function TaskCard ({ id, title, tags, asigneeName }) {
 
         <div className='task-control-container'>
 
-          <div className='asignee-container'>
-            <div className='asignee-img'>
-              <img src={`https://unavatar.io/${asigneeName}`} alt='asignee profile picture' />
-            </div>
-            <p>{asigneeName}</p>
-          </div>
+          {asignee.id &&
+            <div className='asignee-container'>
+              <div className='asignee-img'>
+                <img src={asignee.profilePicture} alt='asignee profile picture' />
+              </div>
+              <p>{asignee.name}</p>
+            </div>}
 
           <DeleteTaskCardModal handleDelete={handleDelete} />
 

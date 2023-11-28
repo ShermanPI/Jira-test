@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './style/UserSelectInput.css'
 import useToggle from '../../hooks/useToggle'
 
-export default function UserSelectInput ({ asignee }) {
+export default function UserSelectInput ({ selectedAsigneeRef, asignee }) {
   const users = [
     {
       id: '9a32020d-c396-44e1-abd6-cbdd05b46c25',
@@ -27,18 +27,24 @@ export default function UserSelectInput ({ asignee }) {
   ]
 
   const [isOptionsHidden, toggleIsOptionsHidden] = useToggle({ initialValue: true })
-  const [selectedAsignee, setSelectedAsignee] = useState()
-
+  const [selectedAsignee, setSelectedAsignee] = useState({})
   const handleAsigneeClick = ({ asignee }) => {
+    selectedAsigneeRef.current = asignee
     setSelectedAsignee(asignee)
   }
+
+  useEffect(() => {
+    if (asignee) {
+      setSelectedAsignee(asignee)
+    }
+  }, [asignee])
 
   return (
     <div className='input-group'>
       <label onClick={toggleIsOptionsHidden}> Assignee </label>
       <div className='users-input-container' onClick={toggleIsOptionsHidden}>
         <div>
-          {selectedAsignee
+          {Object.keys(selectedAsignee).length > 0
             ? (
               <div key={selectedAsignee.id} className='user-option-cotainer selected-user-option'>
                 <div className='user-profile-pic'>

@@ -1,5 +1,5 @@
 import './style/taskModal.css'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import CloseIcon from '../../assets/SvgIcons/Icons'
 import Tag from '../Tag/Tag'
 import { useCardContext } from '../../context/cardsContext'
@@ -12,6 +12,13 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
   const formRef = useRef()
   const tagInputRef = useRef()
   const { tags, addTag } = useCardContext()
+  const selectedAsigneeRef = useRef({})
+
+  useEffect(() => {
+    if (taskInfo) {
+      selectedAsigneeRef.current = taskInfo.asignee
+    }
+  }, [taskInfo])
 
   const addTagHandler = () => {
     const name = tagInputRef.current.value
@@ -24,9 +31,10 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
   const handleCloseModal = (e) => {
     toggleIsHidden()
     if (taskInfo) {
-      handleSubmit({ formRef, id: taskInfo.id })
+      handleSubmit({ formRef, id: taskInfo.id, selectedAsigneeRef })
     } else {
-      handleSubmit(e)
+      handleSubmit(e, selectedAsigneeRef)
+      selectedAsigneeRef.current = {}
     }
   }
 
@@ -88,7 +96,7 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
                 min={date}
               />
             </div>
-            <UserSelectInput />
+            <UserSelectInput selectedAsigneeRef={selectedAsigneeRef} asignee={taskInfo && taskInfo.asignee} />
           </div>
 
           <button type='submit' className='action-btn modal-submit-btn'>{submitButtonText}</button>

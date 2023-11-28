@@ -4,7 +4,6 @@ const CardTaskRepositoryPattern = {
   createTaskCard ({ id = generateUUIDv4(), title, description, tags = [], asignee, dueDate, status = 'TO DO' }) {
     if (!window.localStorage.getItem('cards')) window.localStorage.setItem('cards', '[]')
     const localStorageCards = window.localStorage.getItem('cards')
-
     const newCard = { id, title, description, tags, asignee, dueDate, status }
     const newCardInfoJson = JSON.stringify(newCard)
     const cards = JSON.parse(localStorageCards)
@@ -85,5 +84,6 @@ const CardTaskRepositoryPattern = {
 }
 
 const cardsStorageManagment = CardTaskRepositoryPattern
+console.log(cardsStorageManagment.getAllTaskCards(), '🙂🙂🙂')
 
 export default cardsStorageManagment

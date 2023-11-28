@@ -36,13 +36,13 @@ const CardsContextProvider = ({ children }) => {
     setCards(newCards)
   }
 
-  const updateItem = ({ formRef, id }) => {
+  const updateItem = ({ formRef, id, selectedAsigneeRef }) => {
     const form = new FormData(formRef.current)
     const title = form.get('title')
     const description = form.get('description')
     const dueDate = form.get('due-time')
 
-    const updatedItem = { id, title, tags: activeTaskInfo.tags, description, dueDate, status: activeTaskInfo.status, asignee: 'sherman' }
+    const updatedItem = { id, title, tags: activeTaskInfo.tags, description, dueDate, status: activeTaskInfo.status, asignee: selectedAsigneeRef.current }
 
     if (JSON.stringify(activeTaskInfo) !== JSON.stringify(updatedItem)) {
       const indexToEdit = cards.findIndex((el) => el.id === id)
