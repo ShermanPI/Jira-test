@@ -1,14 +1,15 @@
 import useToggle from '../hooks/useToggle'
 import { createContext, useContext, useRef, useState } from 'react'
-import cardsStorageManagment from '../services/repositoryPattern'
+import cardsRepository from '../services/taskRepository'
+import tagsRepository from '../services/tagRepository'
 const cardsContext = createContext()
 
 const CardsContextProvider = ({ children }) => {
-  const [cards, setCards] = useState(cardsStorageManagment.getAllTaskCards())
+  const [cards, setCards] = useState(cardsRepository.getAllTaskCards())
   const actualActiveModal = useRef('')
   const [isTaskModalHidden, toggleIsTaskModalHidden] = useToggle({ initialValue: false })
   const [activeTaskInfo, setActiveTaskInfo] = useState({})
-  const [tags, setTags] = useState(cardsStorageManagment.getAllTags())
+  const [tags, setTags] = useState(tagsRepository.getAllTags())
 
   const showTaskModal = ({ id }) => {
     toggleIsTaskModalHidden()
@@ -22,14 +23,14 @@ const CardsContextProvider = ({ children }) => {
   }
 
   const addItem = ({ title, description, tags = [], asignee, dueDate }) => {
-    const newItem = cardsStorageManagment.createTaskCard({ title, description, tags, asignee, dueDate })
+    const newItem = cardsRepository.createTaskCard({ title, description, tags, asignee, dueDate })
     const newItems = [...cards]
     newItems.push(newItem)
     setCards(newItems)
   }
 
   const deleteItem = ({ id }) => {
-    cardsStorageManagment.deleteTaskCard({ id })
+    cardsRepository.deleteTaskCard({ id })
     const indexToDelete = cards.findIndex((el) => el.id === id)
     const newCards = [...cards]
     newCards.splice(indexToDelete, 1)
@@ -49,12 +50,12 @@ const CardsContextProvider = ({ children }) => {
       const newCards = [...cards]
       newCards[indexToEdit] = updatedItem
       setCards(newCards)
-      cardsStorageManagment.updateTaskCard(updatedItem)
+      cardsRepository.updateTaskCard(updatedItem)
     }
   }
 
   const addTag = ({ name }) => {
-    const itemAdded = cardsStorageManagment.createTag({ name })
+    const itemAdded = tagsRepository.createTag({ name })
     if (itemAdded) {
       const newTags = [...tags]
       newTags.push(itemAdded)
@@ -63,7 +64,7 @@ const CardsContextProvider = ({ children }) => {
   }
 
   const updateSelectedTag = ({ note, tag, isActive }) => {
-    const newNotes = cardsStorageManagment.updateSelectedTag({ note, tag, isActive })
+    const newNotes = cardsRepository.updateSelectedTag({ note, tag, isActive })
     setCards(newNotes)
   }
 

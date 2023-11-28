@@ -32,4 +32,3 @@ El código fuente debe subirlo a un repositorio de Git de su preferencia y envia
 ✅ - los usuarios pueden eliminar tareas (Cards).
 ✅ - Cuando un usuario agrega una nueva tarjeta, ésta debe colocarse en la parte inferior de la columna "Tareas pendientes".
 ✅ - Se debe mostrar un modal de confirmación antes de eliminar una tarjeta.
-
