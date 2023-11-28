@@ -1,0 +1,56 @@
+.users-input-container {
+    height: 100%;
+    border-radius: 0.4rem;
+    border: 2px solid #0000002c;
+    outline: none;
+    padding: 0.4rem 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.asignee-options-container {
+    position: absolute;
+    top: 3.6rem;
+    border-radius: 0.4rem;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.75);
+    width: 100%;
+    left: 0;
+    overflow: hidden;
+}
+
+.user-profile-pic {
+    display: flex;
+    width: 2.4rem;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.user-option-cotainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.4rem 1.2rem;
+    gap: 1rem;
+}
+
+.user-option-cotainer:hover{
+    background-color: #dedede;
+}
+
+.hidden-user-option{
+    display: none;
+}
+
+.selected-user-option{
+    padding: 0;
+}
+
+.selected-user-option:hover{
+    background-color: transparent;
+}

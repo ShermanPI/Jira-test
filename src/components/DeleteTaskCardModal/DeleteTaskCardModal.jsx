@@ -1,4 +1,4 @@
-import DeleteIcon from '../../assets/SvgIcons/Icons'
+import { DeleteIcon } from '../../assets/SvgIcons/Icons'
 import useToggle from '../../hooks/useToggle'
 import './style/DeleteTaskCardModal.css'
 

@@ -4,6 +4,7 @@ import CloseIcon from '../../assets/SvgIcons/Icons'
 import Tag from '../Tag/Tag'
 import { useCardContext } from '../../context/cardsContext'
 import NewTagButton from '../NewTagButton/NewTagButton'
+import UserSelectInput from '../UserSelectInput/UserSelectInput'
 
 export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, title, taskInfo, submitButtonText = 'Done' }) {
   const today = new Date()
@@ -87,10 +88,7 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
                 min={date}
               />
             </div>
-            <div className='input-group'>
-              <label htmlFor='asignee'> Assignee </label>
-              <input type='text' className='task-form-input' name='asignee' id='asignee' placeholder='Asignee' required />
-            </div>
+            <UserSelectInput />
           </div>
 
           <button type='submit' className='action-btn modal-submit-btn'>{submitButtonText}</button>
