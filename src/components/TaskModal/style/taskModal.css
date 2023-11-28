@@ -7,3 +7,7 @@
 .due-time-container>*{
     width: 100%;
 }
+
+.modal-submit-btn{
+    align-self: flex-end;
+}

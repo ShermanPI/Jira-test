@@ -7,7 +7,7 @@ export default function TaskModalPreview () {
 
   return (
     <>
-      <TaskModal isHidden={isTaskModalHidden} handleSubmit={updateItem} toggleIsHidden={toggleIsTaskModalHidden} title='Task Preview' taskInfo={activeTaskInfo} />
+      <TaskModal isHidden={isTaskModalHidden} handleSubmit={updateItem} toggleIsHidden={toggleIsTaskModalHidden} title='Task Preview' taskInfo={activeTaskInfo} submitButtonText='CLOSE' />
     </>
   )
 }

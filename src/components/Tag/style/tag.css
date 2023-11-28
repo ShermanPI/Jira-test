@@ -14,6 +14,8 @@
     border-radius: 0.4rem;
     border: 2px solid #e6e6e6;
     padding-inline: 0.8rem;
+    display: flex;
+    align-items: center;
 }
 
 .card-tag p {
@@ -42,23 +44,4 @@
 
 .selected-tag:hover p {
     color: #388bff;
-}
-
-.create-tag-btn {
-    border-radius: 0.4rem;
-    cursor: pointer;
-    padding-inline: 1rem;
-    font-size: 1.3rem;
-    height: 100%;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    background-color: #e6e6e6;
-    color: #388bff;
-    transition: all 0.2s ease-in-out;
-}
-
-.create-tag-btn:hover {
-    background-color: #388bff;
-    color: #e6e6e6;
 }

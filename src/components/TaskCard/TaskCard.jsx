@@ -1,4 +1,5 @@
 import { useCardContext } from '../../context/cardsContext'
+import DeleteTaskCardModal from '../DeleteTaskCardModal/DeleteTaskCardModal'
 import './Style/TaskCard.css'
 
 export default function TaskCard ({ id, title, tags, asigneeName }) {
@@ -30,7 +31,7 @@ export default function TaskCard ({ id, title, tags, asigneeName }) {
             <p>{asigneeName}</p>
           </div>
 
-          <button className='delete-card-btn' onClick={handleDelete}>delete</button>
+          <DeleteTaskCardModal handleDelete={handleDelete} />
 
         </div>
       </div>

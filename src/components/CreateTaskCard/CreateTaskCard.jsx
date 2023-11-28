@@ -21,10 +21,10 @@ export default function CreateTaskCard ({ buttonClassName }) {
 
   return (
     <>
-      <button className={buttonClassName} onClick={toggleIsHidden}>
-        Create
+      <button className='create-modal-btn action-btn' onClick={toggleIsHidden}>
+        CREATE NEW TASK
       </button>
-      <TaskModal handleSubmit={handleSubmit} isHidden={isHidden} toggleIsHidden={toggleIsHidden} title='Create Task Card' />
+      <TaskModal handleSubmit={handleSubmit} isHidden={isHidden} toggleIsHidden={toggleIsHidden} title='Create Task Card' submitButtonText='Create' />
     </>
   )
 }

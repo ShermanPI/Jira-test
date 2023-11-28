@@ -3,8 +3,9 @@ import { useRef } from 'react'
 import CloseIcon from '../../assets/SvgIcons/Icons'
 import Tag from '../Tag/Tag'
 import { useCardContext } from '../../context/cardsContext'
+import NewTagButton from '../NewTagButton/NewTagButton'
 
-export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, title, taskInfo }) {
+export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, title, taskInfo, submitButtonText = 'Done' }) {
   const today = new Date()
   const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
   const formRef = useRef()
@@ -46,11 +47,11 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
 
           {
             taskInfo
-              ? <input type='text' className='title-input' name='title' id='title' placeholder='Title' defaultValue={taskInfo.title} required />
+              ? <input type='text' className='title-input task-form-input' name='title' id='title' placeholder='Title' defaultValue={taskInfo.title} required />
               : (
                 <div className='input-group'>
                   <label htmlFor='title'> Title </label>
-                  <input type='text' name='title' id='title' placeholder='Write a title for your task' required />
+                  <input type='text' className='task-form-input' name='title' id='title' placeholder='Write a title for your task' required />
                 </div>
                 )
           }
@@ -60,37 +61,39 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
             <textarea id='description' name='description' placeholder='This is a description' defaultValue={taskInfo && taskInfo.description} required />
           </div>
 
-          <div className='input-group'>
-            <label> Tags </label>
-            <ul className='card-tags-container'>
-              {tags.map(el => {
-                const isTagSelected = (taskInfo && JSON.stringify(taskInfo) !== '{}') ? taskInfo.tags.some(tag => tag.id === el.id) : false
-                return <Tag name={el.name} key={el.id} id={el.id} taskInfo={taskInfo} isSelected={isTagSelected} />
-              })}
+          {
+            taskInfo &&
+              <div className='input-group'>
+                <label> Tags </label>
+                <ul className='card-tags-container'>
+                  {tags.map(el => {
+                    const isTagSelected = (taskInfo && JSON.stringify(taskInfo) !== '{}') ? taskInfo.tags.some(tag => tag.id === el.id) : false
+                    return <Tag name={el.name} key={el.id} id={el.id} taskInfo={taskInfo} isSelected={isTagSelected} />
+                  })}
 
-              <li>
-                <input ref={tagInputRef} type='text' name='new-tag-input' id='new-tag-input' placeholder='Tag Name' />
-                <div className='create-tag-btn' onClick={addTagHandler}>+ Create tag</div>
-              </li>
-            </ul>
-          </div>
+                  <li>
+                    <NewTagButton tagInputRef={tagInputRef} addTagHandler={addTagHandler} />
+                  </li>
+                </ul>
+              </div>
+          }
 
           <div className='due-time-container'>
 
             <div className='input-group'>
               <label htmlFor='due-time'> Due Date </label>
               <input
-                type='date' name='due-time' id='due-time' defaultValue={taskInfo ? taskInfo.dueDate : date} required
+                type='date' className='task-form-input' name='due-time' id='due-time' defaultValue={taskInfo ? taskInfo.dueDate : date} required
                 min={date}
               />
             </div>
             <div className='input-group'>
               <label htmlFor='asignee'> Assignee </label>
-              <input type='text' name='asignee' id='asignee' placeholder='Asignee' required />
+              <input type='text' className='task-form-input' name='asignee' id='asignee' placeholder='Asignee' required />
             </div>
           </div>
 
-          <button type='submit'>Create</button>
+          <button type='submit' className='action-btn modal-submit-btn'>{submitButtonText}</button>
         </form>
       </div>
     </div>

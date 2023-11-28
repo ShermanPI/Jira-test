@@ -21,3 +21,19 @@
 .create-modal-btn{
     height: auto;
 }
+
+.action-btn{
+    background-color: #388bff;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.4rem;
+    width: auto;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.action-btn:hover{
+    background-color: #1074ff;
+
+}

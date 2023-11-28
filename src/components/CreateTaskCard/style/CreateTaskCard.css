@@ -30,7 +30,7 @@
     gap: 1.6rem;
 }
 
-.task-form input{
+.task-form-input{
     border: 2px solid #0000002c;
     outline: none;
     padding: 0.4rem 1rem;
@@ -38,11 +38,11 @@
     border-radius: 0.4rem;
 }
 
-.task-form input:hover{
+.task-form-input:hover{
     background-color: #0000000e;
 }
 
-.task-form input:focus{
+.task-form-input:focus{
     border: 2px solid #388bff;
     border-radius: 0.4rem;
     background-color: #fff;
