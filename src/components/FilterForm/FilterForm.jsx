@@ -1,5 +1,5 @@
 import InputText from '../InputText/InputText'
-import SelectField from '../SelectAsigneeField/SelectAsigneeField'
+import SelectField from '../SelectField/SelectField'
 
 export default function FilterForm () {
   return (
