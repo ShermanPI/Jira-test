@@ -40,6 +40,9 @@ const cardsLocalStorageRepository = {
     cards[indexToEdit] = note
     localStorageService.set(KEYS.CARD, cards)
     return cards
+  },
+  updateTasks (tasksArray) {
+    localStorageService.set(KEYS.CARD, tasksArray)
   }
 
 }

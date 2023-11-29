@@ -32,3 +32,8 @@ El código fuente debe subirlo a un repositorio de Git de su preferencia y envia
 ✅ - los usuarios pueden eliminar tareas (Cards).
 ✅ - Cuando un usuario agrega una nueva tarjeta, ésta debe colocarse en la parte inferior de la columna "Tareas pendientes".
 ✅ - Se debe mostrar un modal de confirmación antes de eliminar una tarjeta.
+
+## Etapa 2
+
+✅ - Implemente la funcionalidad de arrastrar y soltar donde los usuarios deberían poder seleccionar una o varias tarjetas y moverlas de una columna a otra. 
+✅ - Al colocar una o más cartas en una columna que contiene otras cartas, las nuevas cartas deben agregarse en la parte inferior, manteniendo el mismo orden que tenían antes. (Puedes usar una biblioteca)
