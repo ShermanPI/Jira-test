@@ -37,3 +37,9 @@ El código fuente debe subirlo a un repositorio de Git de su preferencia y envia
 
 ✅ - Implemente la funcionalidad de arrastrar y soltar donde los usuarios deberían poder seleccionar una o varias tarjetas y moverlas de una columna a otra. 
 ✅ - Al colocar una o más cartas en una columna que contiene otras cartas, las nuevas cartas deben agregarse en la parte inferior, manteniendo el mismo orden que tenían antes. (Puedes usar una biblioteca)
+
+## Etapa 3
+- Implemente una búsqueda para filtrar tarjetas según los siguientes campos: 
+    - Título
+    - Asignatario
+    - Etiquetas

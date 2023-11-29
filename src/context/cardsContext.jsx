@@ -5,12 +5,14 @@ import tagsRepository from '../services/tagRepository'
 const cardsContext = createContext()
 
 const CardsContextProvider = ({ children }) => {
-  const [cards, setCards] = useState(cardsRepository.getAllTaskCards())
+  const allTaskCards = cardsRepository.getAllTaskCards()
+  const [cards, setCards] = useState(allTaskCards)
   const actualActiveModal = useRef('')
   const [isTaskModalHidden, toggleIsTaskModalHidden] = useToggle({ initialValue: false })
   const [activeTaskInfo, setActiveTaskInfo] = useState({})
   const [tags, setTags] = useState(tagsRepository.getAllTags())
   const actualDragginTask = useRef()
+  const filtersRef = useRef({ title: '', asignee: '', tag: '' })
 
   const showTaskModal = ({ id }) => {
     toggleIsTaskModalHidden()
@@ -82,6 +84,28 @@ const CardsContextProvider = ({ children }) => {
     }
   }
 
+  const filterTasksBy = (filterInput) => {
+    filtersRef.current = ({ ...filtersRef.current, ...filterInput })
+    let filteredArray = [...allTaskCards]
+    const titleToSearch = filtersRef.current.title.toLocaleLowerCase()
+    const tagToSearch = filtersRef.current.tag
+    const asigneeToSearch = filtersRef.current.asignee
+
+    if (titleToSearch || tagToSearch || asigneeToSearch) {
+      filteredArray = filteredArray.filter((el) => {
+        const titleMatch = !titleToSearch || el.title.toLowerCase().includes(titleToSearch)
+        const tagMatch = !tagToSearch || el.tags.some(tag => tag.name === tagToSearch)
+        const asigneeMatch = !asigneeToSearch || el.asignee.name === asigneeToSearch
+        console.log(titleMatch && tagMatch && asigneeMatch)
+        return titleMatch && tagMatch && asigneeMatch
+      })
+      console.log(filteredArray)
+      setCards(filteredArray)
+    } else {
+      setCards(allTaskCards)
+    }
+  }
+
   return (
     <cardsContext.Provider value={
       {
@@ -93,6 +117,7 @@ const CardsContextProvider = ({ children }) => {
         addTag,
         updateSelectedTag,
         moveTaskTo,
+        filterTasksBy,
         actualDragginTask,
         cards,
         actualActiveModal,
