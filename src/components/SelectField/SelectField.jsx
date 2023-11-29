@@ -1,23 +1,12 @@
-import { useCardContext } from '../../context/cardsContext'
-
-export default function SelectField ({ title, inputName }) {
-  const { filterTasksBy } = useCardContext()
-
-  const handleChange = (e) => {
-    if (inputName === 'asignee') {
-      filterTasksBy({ asignee: e.target.value })
-    } else {
-      filterTasksBy({ tag: e.target.value })
-    }
-  }
-
+export default function SelectField ({ title, onChangeHandler, options }) {
   return (
-    <select name={inputName} id='' defaultValue='hey' onChange={handleChange}>
+    <select name={title} id='' defaultValue='hey' onChange={onChangeHandler}>
       <option value=''>{title}</option>
-      <option value='Jeff Delaney'>Jeff Delaney</option>
-      <option value='nota'>nota</option>
-      <option value='hola'>hola</option>
-      <option value='hola'>hola</option>
+      {options && options.map(el => {
+        return (
+          <option key={el.id} value={el.name}>{el.name}</option>
+        )
+      })}
     </select>
   )
 }

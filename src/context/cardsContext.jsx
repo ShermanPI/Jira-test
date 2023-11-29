@@ -96,10 +96,8 @@ const CardsContextProvider = ({ children }) => {
         const titleMatch = !titleToSearch || el.title.toLowerCase().includes(titleToSearch)
         const tagMatch = !tagToSearch || el.tags.some(tag => tag.name === tagToSearch)
         const asigneeMatch = !asigneeToSearch || el.asignee.name === asigneeToSearch
-        console.log(titleMatch && tagMatch && asigneeMatch)
         return titleMatch && tagMatch && asigneeMatch
       })
-      console.log(filteredArray)
       setCards(filteredArray)
     } else {
       setCards(allTaskCards)
