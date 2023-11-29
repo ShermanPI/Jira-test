@@ -29,6 +29,7 @@ export default function TaskModal ({ isHidden, toggleIsHidden, handleSubmit, tit
   }
 
   const handleCloseModal = (e) => {
+    e.preventDefault()
     toggleIsHidden()
     if (taskInfo) {
       handleSubmit({ formRef, id: taskInfo.id, selectedAsigneeRef })

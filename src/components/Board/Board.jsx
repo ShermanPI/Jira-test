@@ -1,4 +1,5 @@
 import CreateTaskCard from '../CreateTaskCard/CreateTaskCard'
+import FilterForm from '../FilterForm/FilterForm'
 import KanbanContainer from '../KanbanContainer/KanbanContainer'
 
 export const Board = () => {
@@ -11,6 +12,7 @@ export const Board = () => {
           <CreateTaskCard />
         </div>
       </div>
+      <FilterForm />
       <KanbanContainer />
     </main>
   )
