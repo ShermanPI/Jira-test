@@ -11,8 +11,9 @@
 }
 
 .hidden-modal{
-    opacity: 0;
-    pointer-events: none;
+    display: none;
+    /* opacity: 0; */
+    /* pointer-events: none; */
 }
 
 .form-modal-container{

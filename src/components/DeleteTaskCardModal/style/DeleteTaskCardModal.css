@@ -1,6 +1,5 @@
 .delete-modal-hidden{
-    opacity: 0;
-    pointer-events: none;
+    display: none;
 }
 
 .delete-task-modal{

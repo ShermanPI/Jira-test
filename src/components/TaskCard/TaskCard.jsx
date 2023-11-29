@@ -3,16 +3,20 @@ import DeleteTaskCardModal from '../DeleteTaskCardModal/DeleteTaskCardModal'
 import './Style/TaskCard.css'
 
 export default function TaskCard ({ id, title, tags, asignee }) {
-  const { showTaskModal, deleteItem } = useCardContext()
+  const { showTaskModal, deleteItem, actualDragginTask } = useCardContext()
 
   const handleDelete = (e) => {
     e.stopPropagation()
     deleteItem({ id })
   }
 
+  const handleDragStart = (e) => {
+    actualDragginTask.current = e.target
+  }
+
   return (
     <>
-      <div className='task-card-cotainer' onClick={() => showTaskModal({ id })}>
+      <div id={id} className='task-card-cotainer' onDragStart={handleDragStart} draggable='true' onClick={() => showTaskModal({ id })}>
         <b className='task-card-title'>{title}</b>
         {tags.length > 0 &&
           <ul className='tags-container'>

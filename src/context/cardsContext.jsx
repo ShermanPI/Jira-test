@@ -10,6 +10,7 @@ const CardsContextProvider = ({ children }) => {
   const [isTaskModalHidden, toggleIsTaskModalHidden] = useToggle({ initialValue: false })
   const [activeTaskInfo, setActiveTaskInfo] = useState({})
   const [tags, setTags] = useState(tagsRepository.getAllTags())
+  const actualDragginTask = useRef()
 
   const showTaskModal = ({ id }) => {
     toggleIsTaskModalHidden()
@@ -68,6 +69,19 @@ const CardsContextProvider = ({ children }) => {
     setCards(newNotes)
   }
 
+  const moveTaskTo = ({ id, column }) => {
+    const newTasks = [...cards]
+    const taskIndexToEdit = newTasks.findIndex(el => el.id === id)
+    const taskToEdit = newTasks.splice(taskIndexToEdit, 1)[0]
+    cardsRepository.deleteTaskCard({ id })
+    if (taskToEdit.status !== column) {
+      taskToEdit.status = column
+      newTasks.push(taskToEdit)
+      setCards(newTasks)
+      cardsRepository.updateTasks(newTasks)
+    }
+  }
+
   return (
     <cardsContext.Provider value={
       {
@@ -78,6 +92,8 @@ const CardsContextProvider = ({ children }) => {
         showTaskModal,
         addTag,
         updateSelectedTag,
+        moveTaskTo,
+        actualDragginTask,
         cards,
         actualActiveModal,
         isTaskModalHidden,
