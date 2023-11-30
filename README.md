@@ -12,7 +12,7 @@
 
 ✅ - Debe colocar un componente de carga mientras realiza la consulta de los datos, puede usar Skeleton o un Loading tradicional.
 
-- Unit Testing: Debe realizar al menos dos unit test (ej: Creation form and Filters).
+✅ - Unit Testing: Debe realizar al menos dos unit test (ej: Creation form and Filters).
 
 ✅ El código fuente debe subirlo a un repositorio de Git de su preferencia y enviar el link para su posterior evaluación
 
