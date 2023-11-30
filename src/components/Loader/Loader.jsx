@@ -14,7 +14,7 @@ export default function Loader () {
     <>
       {
         isPageLoading &&
-          <div className='loader-container'>
+          <div className='loader-container' data-testid='loader-container'>
             <div className='loader-gif-container'>
               <img src='/images/loader.gif' alt='' />
             </div>

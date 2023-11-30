@@ -1,3 +1,4 @@
+import './style/filterForm.css'
 import { useCardContext } from '../../context/cardsContext'
 import InputText from '../InputText/InputText'
 import SelectField from '../SelectField/SelectField'
@@ -15,7 +16,7 @@ export default function FilterForm () {
   }
 
   return (
-    <form>
+    <form className='filter-form-container'>
       <InputText placeHolder='Search by title' />
       <SelectField title='Asignee' options={users} onChangeHandler={handleChangeAsignee} />
       <SelectField title='Tag' options={tags} onChangeHandler={handleChangeTag} />
